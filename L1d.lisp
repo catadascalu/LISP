@@ -1,0 +1,16 @@
+(defun gcd(N1 N2)
+  (cond
+    ((= N1 0) N2)
+    ((= N2 0) N1)
+    ((= N1 N2) N1)
+    ((< N1 N2) (gcd N1 (- N2 N1)))
+    ((> N1 N2) (gcd N2 N1))
+  )
+)
+(defun gcd_list(L)
+  (cond
+    ((NULL L) 0)
+    ((numberp(CAR L)) (gcd (CAR L) (gcd_list (CDR L))))
+    (t (gcd_list(CDR L)))
+  )
+)
